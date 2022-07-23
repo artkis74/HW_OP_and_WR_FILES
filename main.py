@@ -43,3 +43,26 @@ def get_shop_list_by_dishes(dishes, person_count):
 # pprint(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'],2))
 
 
+dict = {}
+ROOT_PATH = os.getcwd()
+FILE_LOG_DIR = 'Files'
+files_list = os.listdir(os.path.join(ROOT_PATH, FILE_LOG_DIR))
+for file in files_list:
+    path = os.path.join(ROOT_PATH, FILE_LOG_DIR, file)
+    with open(path, encoding='utf-8') as content:
+        text = []
+        for string in content:
+            text.append(string.strip())
+            lens = len(text)
+        dict[file] = [len(text), text]
+sorted_list = sorted(dict.items(), key=lambda item: item[1])
+
+with open('final file.txt', 'w+', encoding='utf-8') as f:
+    for strings in sorted_list:
+        # print(level_1)
+        f.write(strings[0]+'\n')
+        f.write(str(strings[1][0]) + '\n')
+        # print(strings[1][1])
+        for sentence in strings[1][1]:
+            str_ = ''.join(str(x) for x in sentence)
+            f.write(str_ + '\n')
