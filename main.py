@@ -16,7 +16,7 @@ with open('recipes.txt', encoding='utf-8') as file:
             ingredients.append(ingredient_dict)
             cook_book[dish] = ingredients
         file.readline()
-pprint(cook_book)
+# pprint(cook_book)
 
 
 def get_shop_list_by_dishes(dishes, person_count):
@@ -40,6 +40,6 @@ def get_shop_list_by_dishes(dishes, person_count):
                                 value["quantity"] = int(value['quantity']) + ingredient['quantity']
     return shop_list
 
-pprint(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'],2))
+# pprint(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'],2))
 
 
